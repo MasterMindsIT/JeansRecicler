@@ -78,14 +78,13 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "item='" + item + '\'' +
-                ", price='" + price + '\'' +
-                ", description='" + description + '\'' +
-                ", code='" + code + '\'' +
-                ", size='" + size + '\'' +
-                ", brand='" + brand + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+        return "Datos del producto \n" +
+                "Nombre del artículo: " + item + "\n" +
+                "Precio: " + price  + "\n" +
+                "Descripción: " + description + "\n" +
+                "Código: " + code + "\n" +
+                "Tamaño: " + size + "\n" +
+                "Marca: " + brand + "\n" +
+                "Color" + color + "\n";
     }
 }

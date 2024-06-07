@@ -51,12 +51,16 @@ public class ProductService {
     }
 
     private String newValueAttributeProduct() {
+        String valor;
+
         System.out.print("Ingrese el nuevo valor: ");
-        return sc.nextLine();
+        valor = sc.next();
+
+        return valor;
     }
 
     private int selectAttributeProduct() {
-        System.out.print("SELECCIONE EL ITEM A MODIFICAR INGRESNDO EL NÚMERO");
+        System.out.print("SELECCIONE EL ITEM A MODIFICAR INGRESNDO EL NÚMERO: ");
         return sc.nextInt();
     }
 
