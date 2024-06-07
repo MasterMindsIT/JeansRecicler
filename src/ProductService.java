@@ -23,31 +23,37 @@ public class ProductService {
         }
     }
     public void editProduct(List<Product> listProducts){
-        int position = -1;
-        do {
-            String code = selectProduct();
-            position = obtainProduct(listProducts, code);
-        }while (position<0);
-        Product products = listProducts.get(position);
-        viewItemProducts(products);
-        int op = selectAttributeProduct();
-        String newValue = newValueAttributeProduct();
-        if(op==1){
-            products.setItem(newValue);
-        } else if (op==2) {
-            products.setPrice(newValue);
-        } else if (op==3) {
-            products.setDescription(newValue);
-        } else if (op==4) {
-            products.setCode(newValue);
-        } else if (op==5) {
-            products.setSize(newValue);
-        } else if (op==6) {
-            products.setBrand(newValue);
-        } else if (op==7) {
-            products.setColor(newValue);
+        if(!listProducts.isEmpty()) {
+            int position;
+            do {
+                String code = selectProduct();
+                position = obtainProduct(listProducts, code);
+            } while (position < 0);
+            Product products = listProducts.get(position);
+            viewItemProducts(products);
+            int op = selectAttributeProduct();
+            if(op>0 && op<7){
+            String newValue = newValueAttributeProduct();
+            if (op == 1) {
+                products.setItem(newValue);
+            } else if (op == 2) {
+                products.setPrice(newValue);
+            } else if (op == 3) {
+                products.setDescription(newValue);
+            } else if (op == 4) {
+                products.setCode(newValue);
+            } else if (op == 5) {
+                products.setSize(newValue);
+            } else if (op == 6) {
+                products.setBrand(newValue);
+            } else if (op == 7) {
+                products.setColor(newValue);
+            }
+            listProducts.add(position, products);
+            }
+        }else{
+            System.out.println("No existe ningún producto para editar;");
         }
-        listProducts.add(position,products);
     }
 
     private String newValueAttributeProduct() {
@@ -60,7 +66,7 @@ public class ProductService {
     }
 
     private int selectAttributeProduct() {
-        System.out.print("SELECCIONE EL ITEM A MODIFICAR INGRESNDO EL NÚMERO: ");
+        System.out.print("SELECCIONE EL ITEM A MODIFICAR INGRESNDO EL NÚMERO,(un número distinto para salir): ");
         return sc.nextInt();
     }
 
