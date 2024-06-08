@@ -49,6 +49,7 @@ public class ProductService {
             } else if (op == 7) {
                 products.setColor(newValue);
             }
+            listProducts.remove(position);
             listProducts.add(position, products);
             }
         }else{
